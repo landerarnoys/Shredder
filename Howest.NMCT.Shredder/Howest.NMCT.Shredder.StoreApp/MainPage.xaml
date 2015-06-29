@@ -1,0 +1,223 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Howest.NMCT.Shredder.StoreApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:Howest.NMCT.Shredder.Lib.Service"
+    xmlns:Maps="using:Bing.Maps"
+    x:Class="Howest.NMCT.Shredder.StoreApp.MainPage"
+    DataContext="{Binding MainPageViewModel, Source={StaticResource Locator}}"
+    mc:Ignorable="d"
+    >
+
+    <Page.Resources>
+        <Style x:Key="GridViewItemStyle" TargetType="GridViewItem">
+            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
+            <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="TabNavigation" Value="Local"/>
+            <Setter Property="IsHoldingEnabled" Value="True"/>
+            <Setter Property="Margin" Value="0,0,2,2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="GridViewItem">
+                    </ControlTemplate>
+                </Setter.Value>
+
+            </Setter>
+            <Setter
+                    Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter
+                    Property="VerticalAlignment"
+                    Value="Center" />
+
+        </Style>
+    </Page.Resources>
+
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="191*"/>
+            <ColumnDefinition Width="1175*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="Assets/bg.png"/>
+        </Grid.Background>
+        <Image Margin="72,49,45,648" Source="Assets/logoStart.png" Stretch="None"/>
+
+        <TextBlock Margin="146,49,850,638" FontSize="65" Foreground="#FF06B0D6"  Text="Shredder" Grid.ColumnSpan="2"/>
+
+        <GridView 
+            Padding="80,180,80,0" 
+             x:Name="itemGridView"
+             IsSwipeEnabled="True"
+             IsItemClickEnabled="True"
+             BorderThickness="0"
+             ItemContainerStyle="{StaticResource GridViewItemStyle}" Grid.ColumnSpan="2"
+           >
+
+
+
+
+            <Grid x:Name="Wrapper">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0" Margin="0,0,0,50" Tapped="goToMaps" >
+
+                    <TextBlock Grid.Row="0"  Grid.Column="0" Text="Locations" Margin="0,0,0,469" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" FontSize="36" Foreground="#a62e32" ScrollViewer.HorizontalScrollBarVisibility="Auto" FontWeight="SemiBold"/>
+
+
+                    <Grid Height="450" Width="550" Margin="0,50,0,0" >
+
+                        <Maps:Map Grid.Column="0" Name="bingMap"   CopyrightPosition="TopLeft" ShowNavigationBar="False" ShowScaleBar="False" ZoomLevel="15" Credentials="AsHG9Glil1smFVzvmwtkqkq72YgptGOIHD6iQef7u6NWXy3Yua3Z-nxq0x7aU9BZ" HorizontalAlignment="Left" VerticalAlignment="Center" Height="450" Width="550" BorderThickness="0" IsRightTapEnabled="False" IsHoldingEnabled="False" IsDoubleTapEnabled="False">
+                        </Maps:Map>
+
+                    </Grid>
+                </Grid>
+
+                <Grid Margin="80,0,0,0" Grid.Column="1">
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Spots"  Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" FontSize="36" Foreground="#a62e32" Tapped="navigateToTopTenSpots" Margin="0,0,0,547" FontWeight="SemiBold"/>
+                    <Grid  Width="450" Height="450" Margin="0,0,0,0" >
+                        <Grid x:Name="workaroundBingMapsAndYoutubeVideo" Visibility="Collapsed">
+                            <TextBox x:Name="bingmap1Lat" Text="{Binding Places[0].Latitude}" TextChanged="bingmap1_TextChanged"/>
+                            <TextBox x:Name="bingmap1Long" Text="{Binding Places[0].Longitude}"/>
+                            <TextBox x:Name="bingmap2Lat" Text="{Binding Places[1].Latitude}" TextChanged="bingmap2_TextChanged"/>
+                            <TextBox x:Name="bingmap2Long" Text="{Binding Places[1].Longitude}"/>
+                            <TextBox x:Name="bingmap3Lat" Text="{Binding Places[2].Latitude}" TextChanged="bingmap3_TextChanged"/>
+                            <TextBox x:Name="bingmap3Long" Text="{Binding Places[2].Longitude}"/>
+                            <TextBox x:Name="txtVideoSource" Text="{Binding Videos[0].Url}" TextChanged="txtVideoSource_TextChanged"/>
+                        </Grid>
+                        <Maps:Map  CopyrightPosition="TopLeft" ShowNavigationBar="False" ShowScaleBar="False" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="0" Name="bingMapTop1"  ZoomLevel="15" Credentials="AsHG9Glil1smFVzvmwtkqkq72YgptGOIHD6iQef7u6NWXy3Yua3Z-nxq0x7aU9BZ" Height="215" Width="215" BorderThickness="0" Tapped="Spot1_Tapped">
+                            <Maps:Map.Center>
+                                <Maps:Location Latitude="{Binding Places[0].Latitude, Mode=TwoWay}" Longitude="{Binding Places[0].Longitude, Mode=TwoWay}"/>
+                            </Maps:Map.Center>
+                            <Maps:Map.Children>
+                                <Maps:Pushpin>
+                                    <Maps:MapLayer.Position>
+                                        <Maps:Location Latitude="{Binding Places[0].Latitude}" Longitude="{Binding Places[0].Longitude}"/>
+                                    </Maps:MapLayer.Position>
+                                </Maps:Pushpin>
+                                <Border Background="#547625" Opacity="0.85" HorizontalAlignment="Left" Height="30" Margin="0,185,0,0" VerticalAlignment="Top" Width="215">
+                                    <TextBlock Foreground="White" Padding="5" VerticalAlignment="Center" Text="{Binding Places[0].Name}" />
+                                </Border>
+                            </Maps:Map.Children>
+                        </Maps:Map>
+
+                        <Maps:Map CopyrightPosition="TopLeft" ShowNavigationBar="False" ShowScaleBar="False" VerticalAlignment="Top" HorizontalAlignment="right" Grid.Column="0" Name="bingMapTop2"  ZoomLevel="15" Credentials="AsHG9Glil1smFVzvmwtkqkq72YgptGOIHD6iQef7u6NWXy3Yua3Z-nxq0x7aU9BZ" Height="215" Width="215" BorderThickness="0" Tapped="Spot2_Tapped">
+                            <Maps:Map.Center>
+                                <Maps:Location Latitude="{Binding Places[1].Latitude}" Longitude="{Binding Places[1].Longitude}"/>
+                            </Maps:Map.Center>
+                            <Maps:Map.Children>
+                                <Maps:Pushpin>
+                                    <Maps:MapLayer.Position>
+                                        <Maps:Location Latitude="{Binding Places[1].Latitude}" Longitude="{Binding Places[1].Longitude}"/>
+                                    </Maps:MapLayer.Position>
+                                </Maps:Pushpin>
+                                <Border Background="#547625" Opacity="0.85" HorizontalAlignment="Left" Height="30" Margin="0,185,0,0" VerticalAlignment="Top" Width="215">
+                                    <TextBlock Foreground="White" Padding="5" VerticalAlignment="Center" Text="{Binding Places[1].Name}" />
+                                </Border>
+                            </Maps:Map.Children>
+                        </Maps:Map>
+
+                        <Maps:Map CopyrightPosition="TopLeft" ShowNavigationBar="False" ShowScaleBar="False" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Column="0" Name="bingMapTop3"  ZoomLevel="15" Credentials="AsHG9Glil1smFVzvmwtkqkq72YgptGOIHD6iQef7u6NWXy3Yua3Z-nxq0x7aU9BZ" Height="215" Width="215" BorderThickness="0" Tapped="Spot3_Tapped">
+                            <Maps:Map.Center>
+                                <Maps:Location Latitude="{Binding Places[2].Latitude}" Longitude="{Binding Places[2].Longitude}"/>
+                            </Maps:Map.Center>
+                            <Maps:Map.Children>
+                                <Maps:Pushpin>
+                                    <Maps:MapLayer.Position>
+                                        <Maps:Location Latitude="{Binding Places[2].Latitude}" Longitude="{Binding Places[2].Longitude}"/>
+                                    </Maps:MapLayer.Position>
+                                </Maps:Pushpin>
+                                <Border Background="#547625" Opacity="0.85" HorizontalAlignment="Left" Height="30" Margin="0,185,0,0" VerticalAlignment="Top" Width="215">
+                                    <TextBlock Foreground="White" Padding="5" VerticalAlignment="Center" Text="{Binding Places[2].Name}" />
+                                </Border>
+                            </Maps:Map.Children>
+                        </Maps:Map>
+
+                        <Button Margin="229,235,-3,-3" Height="222" Width="222" Background="#547625"  BorderThickness="0" VerticalAlignment="Bottom" Tapped="navigateToTopTenSpots" HorizontalAlignment="Right">
+                            <Grid>
+                                <Image Source="Assets/Trophy-silver-icon.png" Stretch="Fill" Margin="59,44,61,76"></Image>
+                                <TextBlock  Text="Top spots"  FontSize="24" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,39"></TextBlock>
+                            </Grid>
+                        </Button>
+                    </Grid>
+                    <ProgressRing x:Name="placesRing" Foreground="#a62e32" HorizontalAlignment="Left" Margin="125,10,0,0" VerticalAlignment="Top" IsActive="{Binding PlacesLoading}"/>
+                </Grid>
+
+                <Grid Grid.Column="2"  Margin="80,0,0,50">
+                    <TextBlock Tapped="navigateToTopTenPhoto" Grid.Row="0" Grid.Column="0" Text="Photos" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" FontSize="36" Foreground="#a62e32" ScrollViewer.HorizontalScrollBarVisibility="Auto" Margin="0,0,0,490" FontWeight="SemiBold"/>
+                    <Grid Height="450" Width="442" Margin="0,50,0,0">
+                        <Border Width="210" Height="210" Background="#547625" Margin="0,0,0,240" HorizontalAlignment="Left" Tapped="Picture1_Tapped">
+                            <Image Source="{Binding Pictures[0].Url}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Pictures[0].Title}" />
+                        </Border>
+                        <Border Background="#547625" Opacity="0.85" HorizontalAlignment="Left" Height="30" Margin="0,180,0,0" VerticalAlignment="Top" Width="210">
+                            <TextBlock Foreground="White" Padding="5" VerticalAlignment="Center" Text="{Binding Pictures[0].Title}"/>
+                        </Border>
+                        <Border Width="210" Background="#547625" Margin="232,0,0,240" HorizontalAlignment="Left" Tapped="Picture2_Tapped">
+                            <Image Source="{Binding Pictures[1].Url}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Pictures[1].Title}" />
+                        </Border>
+                        <Border Background="#547625" Opacity="0.85" HorizontalAlignment="Left" Height="30" Margin="232,180,0,0" VerticalAlignment="Top" Width="210">
+                            <TextBlock Foreground="White" Padding="5" VerticalAlignment="Center" Text="{Binding Pictures[1].Title}" />
+                        </Border>
+
+                        <Border Width="210" Height="210" Background="#547625" Margin="0,240,0,0" HorizontalAlignment="Left" Tapped="Picture3_Tapped">
+                            <Image Source="{Binding Pictures[2].Url}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Pictures[2].Title}" />
+                        </Border>
+                        <Border Background="#547625" Opacity="0.85" HorizontalAlignment="Left" Height="30" Margin="0,420,0,0" VerticalAlignment="Top" Width="210">
+                            <TextBlock Foreground="White" Padding="5" VerticalAlignment="Center" Text="{Binding Pictures[2].Title}" />
+                        </Border>
+
+                        <Button Margin="229,237,-3,-3" Height="216" Width="216" Background="#547625"  BorderThickness="0" Tapped="navigateToTopTenPhoto">
+                            <Grid>
+                                <Image Source="Assets/Trophy-silver-icon.png" Stretch="Fill" Margin="59,44,61,76"></Image>
+                                <TextBlock  Text="Top photos"  FontSize="24" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,39"></TextBlock>
+                            </Grid>
+                        </Button>
+
+                    </Grid>
+                    <ProgressRing x:Name="photosRing" Foreground="#a62e32" HorizontalAlignment="Left" Margin="125,10,0,0" VerticalAlignment="Top" IsActive="{Binding PhotosLoading}"/>
+                </Grid>
+
+                <Grid   Margin="80,0,0,0" Grid.Column="3">
+                    <TextBlock Tapped="navigateToTopTenVideos" Grid.Row="0" Grid.Column="0" Text="Videos" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" FontSize="36" Foreground="#a62e32" ScrollViewer.HorizontalScrollBarVisibility="Auto" Margin="0,0,0,525" FontWeight="SemiBold"/>
+                    <ProgressRing x:Name="videosRing" Foreground="#a62e32" HorizontalAlignment="Left" Margin="125,10,0,0" VerticalAlignment="Top" IsActive="{Binding VideosLoading}"/>
+                    <Grid Height="450" Width="442" Margin="0,0,0,0">
+                        <Border Width="442" Height="210" Background="#547625" Margin="0,0,0,240" HorizontalAlignment="Left">
+                            <Grid>
+                                <MediaElement  Tapped="pauzeVideo" Name="mediaYoutube" HorizontalAlignment="Left" Width="442"/>
+                                <Button x:Name="play" Style="{StaticResource PlayAppBarButtonStyle}" Click="Toggle_PlayPressed_Click" Margin="175,68,163,51" Width="104" HorizontalAlignment="Center" RenderTransformOrigin="0.517,0.522"/>
+                            </Grid>
+                        </Border>
+
+
+                        <Button Margin="-3,237,-3,-3" Height="216" Width="448" Background="#547625"  BorderThickness="0" Tapped="navigateToTopTenVideos">
+                            <Grid>
+                                <Image Source="Assets/Trophy-silver-icon.png" Stretch="Fill" Margin="19,44,0,76" HorizontalAlignment="Left" Width="73"></Image>
+                                <TextBlock  Text="Top video's"  FontSize="24" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,39"></TextBlock>
+                            </Grid>
+                        </Button>
+
+                    </Grid>
+
+
+
+                </Grid>
+
+
+
+            </Grid>
+        </GridView>
+
+
+    </Grid>
+</Page>

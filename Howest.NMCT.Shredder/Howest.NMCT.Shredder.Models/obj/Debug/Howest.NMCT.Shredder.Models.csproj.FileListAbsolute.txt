@@ -1,0 +1,13 @@
+C:\Shredder\ShredderApp\src\Howest.NMCT.Shredder\Howest.NMCT.Shredder.Models\bin\Debug\Howest.NMCT.Shredder.Models.dll
+C:\Shredder\ShredderApp\src\Howest.NMCT.Shredder\Howest.NMCT.Shredder.Models\bin\Debug\Howest.NMCT.Shredder.Models.pdb
+C:\Shredder\ShredderApp\src\Howest.NMCT.Shredder\Howest.NMCT.Shredder.Models\bin\Debug\GalaSoft.MvvmLight.dll
+C:\Shredder\ShredderApp\src\Howest.NMCT.Shredder\Howest.NMCT.Shredder.Models\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\Shredder\ShredderApp\src\Howest.NMCT.Shredder\Howest.NMCT.Shredder.Models\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Shredder\ShredderApp\src\Howest.NMCT.Shredder\Howest.NMCT.Shredder.Models\bin\Debug\Newtonsoft.Json.dll
+C:\Shredder\ShredderApp\src\Howest.NMCT.Shredder\Howest.NMCT.Shredder.Models\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Shredder\ShredderApp\src\Howest.NMCT.Shredder\Howest.NMCT.Shredder.Models\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Shredder\ShredderApp\src\Howest.NMCT.Shredder\Howest.NMCT.Shredder.Models\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Shredder\ShredderApp\src\Howest.NMCT.Shredder\Howest.NMCT.Shredder.Models\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Shredder\ShredderApp\src\Howest.NMCT.Shredder\Howest.NMCT.Shredder.Models\bin\Debug\Newtonsoft.Json.xml
+C:\Shredder\ShredderApp\src\Howest.NMCT.Shredder\Howest.NMCT.Shredder.Models\obj\Debug\Howest.NMCT.Shredder.Models.dll
+C:\Shredder\ShredderApp\src\Howest.NMCT.Shredder\Howest.NMCT.Shredder.Models\obj\Debug\Howest.NMCT.Shredder.Models.pdb

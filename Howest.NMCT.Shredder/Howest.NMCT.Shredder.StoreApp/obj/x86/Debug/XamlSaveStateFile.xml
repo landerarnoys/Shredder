@@ -1,0 +1,16 @@
+<XamlCompilerSaveState>
+  <ReferenceAssemblyList>
+    <ReferenceAssembly PathName="c:\users\landerpc\appdata\local\microsoft sdks\windows\v8.1\extensionsdks\bing.maps.xaml\1.313.0825.0\references\commonconfiguration\neutral\bing.maps.winmd" HashGuid="dcdce9e5-521a-6d20-3956-9df814dff813" />
+    <ReferenceAssembly PathName="c:\program files (x86)\microsoft sdks\live\v5.5\windows store app xaml\references\commonconfiguration\neutral\microsoft.live.dll" HashGuid="035fef31-110d-14b6-b574-790e84e2279a" />
+    <ReferenceAssembly PathName="c:\program files (x86)\microsoft sdks\windows\v8.1\extensionsdks\microsoft.vclibs\12.0\references\commonconfiguration\neutral\platform.winmd" HashGuid="58b6b6d1-928e-9908-9804-eb460e5e101b" />
+    <ReferenceAssembly PathName="c:\shredder\shredderapp\src\howest.nmct.shredder\packages\callisto.1.4.0\lib\netcore451\callisto.dll" HashGuid="2e1ab8d4-b948-5a13-39d6-e24ac2a3055f" />
+    <ReferenceAssembly PathName="c:\shredder\shredderapp\src\howest.nmct.shredder\packages\portable.mvvmlightlibs.4.2.30.1\lib\win81\galasoft.mvvmlight.dll" HashGuid="8b3c9490-c604-fc8c-de00-971aeefe08aa" />
+    <ReferenceAssembly PathName="c:\shredder\shredderapp\src\howest.nmct.shredder\packages\portable.mvvmlightlibs.4.2.30.1\lib\win81\galasoft.mvvmlight.extras.dll" HashGuid="3595ee8a-26a5-04be-d3b1-632657b68e11" />
+    <ReferenceAssembly PathName="c:\shredder\shredderapp\src\howest.nmct.shredder\packages\portable.mvvmlightlibs.4.2.30.1\lib\win81\galasoft.mvvmlight.platform.dll" HashGuid="6da94520-3a24-4e0f-6f55-617271ef9410" />
+    <ReferenceAssembly PathName="c:\shredder\shredderapp\src\howest.nmct.shredder\howest.nmct.shredder.lib\bin\debug\howest.nmct.shredder.lib.dll" HashGuid="92ccaffa-adf3-f913-c907-5f34449a2d16" />
+    <ReferenceAssembly PathName="c:\shredder\shredderapp\src\howest.nmct.shredder\howest.nmct.shredder.models\bin\debug\howest.nmct.shredder.models.dll" HashGuid="715aa86d-a470-3149-a3c9-93625d401876" />
+    <ReferenceAssembly PathName="c:\shredder\shredderapp\src\howest.nmct.shredder\packages\portable.commonservicelocator.1.2.2\lib\portable-net4+sl4+wp7+win8\microsoft.practices.servicelocation.dll" HashGuid="c67d9cd8-1217-691e-44e5-b63ebf09d8b4" />
+    <ReferenceAssembly PathName="c:\shredder\shredderapp\src\howest.nmct.shredder\packages\mytoolkit.2.0.13.0\lib\portable-win+net40+sl40+wp71\mytoolkit.dll" HashGuid="e1384869-183b-b814-580e-1b1e44f6c947" />
+    <ReferenceAssembly PathName="c:\shredder\shredderapp\src\howest.nmct.shredder\packages\mytoolkit.extended.2.0.13.0\lib\netcore45\mytoolkit.extended.dll" HashGuid="bb47d7c1-4b2f-0fd4-914f-7091d132ee15" />
+  </ReferenceAssemblyList>
+</XamlCompilerSaveState>
